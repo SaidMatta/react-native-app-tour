@@ -153,8 +153,9 @@ public class RNAppTourModule extends ReactContextBaseJavaModule {
                         }
 
                         TapTarget targetView = generateTapTarget(refView, props);
-
-                        TapTargetView.showFor(dialog, targetView, new TapTargetViewListener(props));
+                        if(activity != null && !activity.isFinishing()){
+                            TapTargetView.showFor(dialog, targetView, new TapTargetViewListener(props));
+                        }
                     }
                 });
             }
