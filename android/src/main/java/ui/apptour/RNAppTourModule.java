@@ -66,7 +66,8 @@ public class RNAppTourModule extends ReactContextBaseJavaModule {
     public void ShowSequence(final ReadableArray views, final ReadableMap props, final Promise promise) {
         final Activity activity = this.getCurrentActivity();
         final List<TapTarget> targetViews = new ArrayList<TapTarget>();
-
+        
+        if(activity != null){
         final Dialog dialog = new AlertDialog.Builder(activity).create();
 
         activity.runOnUiThread(new Runnable() {
@@ -130,7 +131,8 @@ public class RNAppTourModule extends ReactContextBaseJavaModule {
             }
         });
     }
-
+    }
+    
     @ReactMethod
     public void ShowFor(final int view, final ReadableMap props, final Promise promise) {
         final Activity activity = getCurrentActivity();
